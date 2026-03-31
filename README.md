@@ -1,23 +1,33 @@
 # Robot Fleet Monitor
 
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=nodedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-7-DC382D?logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+
 Real-time robot fleet monitoring dashboard. Live robot positions on an interactive map with WebSocket updates, JWT authentication, and an industrial command center UI.
+
+**[Live Demo](http://ophhucybyi4lyviki2p820je.152.53.230.125.sslip.io)** | **[API](http://n10i7xnofgeb5jv834ud72ye.152.53.230.125.sslip.io/api/health)**
+
+Demo login: `admin@test.com` / `test123`
 
 ## Getting Started
 
 **Prerequisites:** Docker and Docker Compose
 
-1. Clone the repository
-2. Start backend services:
-   ```
-   docker compose up
-   ```
-3. In a new terminal, start the frontend:
-   ```
-   cd frontend
-   npm install
-   npm run dev
-   ```
-4. Open `http://localhost:5173` in your browser
+```
+docker compose up --build
+```
+
+Open `http://localhost` in your browser.
+
+**Local development** (without Docker frontend):
+```
+docker compose up db redis api
+cd frontend && npm install && npm run dev
+```
+Then open `http://localhost:5173`.
 
 Default login: `admin@test.com` / `test123`
 
@@ -45,11 +55,11 @@ Node.js/Express REST API backed by PostgreSQL for persistence and Redis for cach
 
 ### Dashboard
 
-![Dashboard with map and robot markers](docs/screenshots/dashboard.png)
+![Dashboard with map and robot markers](docs/screenshots/dashboard.jpg)
 
 ### Robot Detail Panel
 
-![Robot detail panel with battery and telemetry](docs/screenshots/detail-panel.png)
+![Robot detail panel with battery and telemetry](docs/screenshots/detail-panel.jpg)
 
 ## Project Structure
 

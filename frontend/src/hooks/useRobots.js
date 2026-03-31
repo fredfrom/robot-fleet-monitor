@@ -6,7 +6,10 @@ export function useRobots(token) {
   const [robots, setRobots] = useState([]);
   const trailHistoryRef = useRef({});
 
-  const wsUrl = token ? `ws://localhost:3001?token=${token}` : null;
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const wsHost = apiUrl ? new URL(apiUrl).host : window.location.host;
+  const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const wsUrl = token ? `${wsProtocol}//${wsHost}/ws?token=${token}` : null;
   const { status: wsStatus, lastMessage } = useWebSocket(wsUrl);
 
   // Initial REST load
