@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0e14;
+  --color-surface: #141820;
+  --color-accent: #f0b429;
+  --color-text: #e6e8eb;
+  --color-text-muted: #6b7280;
+  --color-border: #1e2530;
+  --color-border-active: rgba(240, 180, 41, 0.25);
+  --color-status-ok: #44c553;
+  --color-status-alert: #e53e3e;
+  --color-status-charging: #60a5fa;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+}
+
+/* Keyframe animations -- referenced by Tailwind arbitrary animate values */
+@keyframes connPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes toastEnter {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes loginPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Respect reduced-motion preference for all CSS animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Base styles -- replaces global.css resets (Tailwind preflight handles most) */
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); }
+}
