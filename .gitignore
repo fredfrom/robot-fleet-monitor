@@ -18,14 +18,3 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
-
-# Planning docs (local only)
-.planning/
-
-# AI assistant files
-CLAUDE.md
-.claude/
-TASKS.md
-*.prompt.md
-claude-notes*
-.cursorrules
